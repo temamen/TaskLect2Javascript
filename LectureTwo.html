@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function(){
+                /* Get iframe src attribute value i.e. YouTube video url
+                and store it in a variable */
+                var url = $("#cartoonVideo").attr('src');
+                
+                /* Assign empty url value to the iframe src attribute when
+                modal hide, which stop the video playing */
+                $("#myModal").on('hide.bs.modal', function(){
+                    $("#cartoonVideo").attr('src', '');
+                });
+                
+                /* Assign the initially stored url back to the iframe src
+                attribute when modal is displayed again */
+                $("#myModal").on('show.bs.modal', function(){
+                    $("#cartoonVideo").attr('src', url);
+                });
+            });
+            </script>
+
+    <style>
+        .lectTwo li.nav-item.active a {
+            background: #fff;
+            border: 1px solid #eee;
+            border-bottom: none;
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+              
+                <h2>X TEAM</h2>
+                <h3>Javascript</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Tasks</p>
+                <li>
+                    <a href="index.html">YouNeed</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Lecture
+                        One</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#lesson1" onclick='scroll("lesson1");'>Comment</a>
+                        </li>
+                        <li>
+                            <a href="#lesson2" onclick='scroll("lesson2");'>Variable</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Arathmetic Operats</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Assignment Operats</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Logical Operators</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Data type</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">String</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Number</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Array</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Boolean</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Object</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Undefined</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Null</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">String Function</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">if else</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Lecture
+                        Two</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#strMethods">String Methods</a>
+                        </li>
+                        <li>
+                            <a href="#funAndAlert">Function & Alert</a>
+                        </li>
+                        <li>
+                            <a href="#arrMethod">Array Methods</a>
+                        </li>
+                        <li>
+                            <a href="#Time">Time</a>
+                        </li>
+                        <li>
+                            <a href="#SideNavbar">Side Navbar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="lectTwo">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Company</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="LecturTwo" class="LecturTwo">
+                <h2>Lecture Two</h2>
+                <div id="accordion">
+                    <div class="card" id="strMethods">
+                        <div class="card-header">
+                            <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                <h5>String Methods</h5>
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="col-lg-8 col-md-12 col-sm-12">
+                                        <div class="page-header">
+                                            <!-- <h2>Littreal String</h2> -->
+                                        </div>
+                                        <div class="card text-center">
+                                            <div class="card-header">
+                                                <ul class="nav nav-tabs card-header-tabs" id="myTabs1">
+                                                    <li class="nav-item active">
+                                                        <a class="nav-link" href="#html1">HTML</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#css1">CSS</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#js1">JAVASCRIPT</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-body tab-content">
+                                                <div id="html1" class="tab-pane active "><img src="images/lectTwo/htmllitString.png" class="img-fluid" ></div>
+                                                <div id="css1" class="tab-pane">Facebook</div>
+                                                <div id="js1" class="tab-pane"><img src="images/lectTwo/JSllitString.png" class="img-fluid"></div>
+                                            </div>
+                                        </div>
+                                        <!-- END WIDGET 2 -->
+                                        <a href="stringMethods.html" class="btn btn-danger btn-sm mt-1">Run</a>
+                                        <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-danger btn-sm mt-1">Leng String</button>
+                                        <button onclick="document.getElementById('id02').style.display='block'" class="btn btn-danger btn-sm mt-1">Slice</button>
+                                        <button onclick="document.getElementById('id03').style.display='block'" class="btn btn-danger btn-sm mt-1">Concat</button>
+                                        <button onclick="document.getElementById('id04').style.display='block'" class="btn btn-danger btn-sm mt-1">Replace</button>
+                                        <button onclick="document.getElementById('id05').style.display='block'" class="btn btn-danger btn-sm mt-1">Substring</button>
+
+                                        <!-- <a href="lect2ArrayMethod.html" class="btn btn-danger btn-sm">Try Example</a> -->
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!---String Method -->
+<!---------------------------------------------------------------------------------------------------------------------------------------->                    
+                    <!-----------------------------------------------Start Function And Alert--------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------->                                        
+                    <div class="card" id="funAndAlert">
+                        <div class="card-header">
+                            <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+                                <h5>Function And Alert</h5>
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse show" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="col-lg-8 col-md-12 col-sm-12">
+                                        <div class="page-header">
+                                            <!-- <h2>Littreal String</h2> -->
+                                        </div>
+                                        <div class="card text-center">
+                                            <div class="card-header">
+                                                <ul class="nav nav-tabs card-header-tabs" id="myTabs2">
+                                                    <li class="nav-item active">
+                                                        <a class="nav-link" href="#html2">HTML</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#css2">CSS</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#js2">JAVASCRIPT</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-body tab-content">
+                                                <div id="html2" class="tab-pane active"><img src="images/lectTwo/lect2Html.png" class="img-fluid"></div>
+                                                <div id="css2" class="tab-pane">Facebook</div>
+                                                <div id="js2" class="tab-pane"><img src="images/lectTwo/functionJS.png" class="img-fluid"></div>
+                                            </div>
+                                        </div>
+                                        <!-- END WIDGET 2 -->
+                                        <a href="lect2FuncAndAlert.html" class="btn btn-danger btn-sm mt-1">Run</a>
+                                        <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-danger btn-sm mt-1">Try Example</button>
+                                        <!-- <a href="lect2ArrayMethod.html" class="btn btn-danger btn-sm">Run</a>
+                                        <a href="lect2ArrayMethod.html" class="btn btn-danger btn-sm">Try Example</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!----------Function And Alert-->
+<!---------------------------------------------------------------------------------------------------------------------------------------->                    
+                    <!-----------------------------------------------Start Array Methods--------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------->                                                            
+                     <!-------------------------------------------------------------------------------------------------->
+                     <div class="card" id="Array Methods">
+                        <div class="card-header">
+                            <a class="card-link" data-toggle="collapse" href="#collapseFour">
+                                <h5>Array Methods</h5>
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="collapse show" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="col-lg-8 col-md-12 col-sm-12">
+                                        <div class="page-header">
+                                            <!-- <h2>Littreal String</h2> -->
+                                        </div>
+                                        <div class="card text-center">
+                                            <div class="card-header">
+                                                <ul class="nav nav-tabs card-header-tabs" id="myTabs4">
+                                                    <li class="nav-item active">
+                                                        <a class="nav-link" href="#html4">HTML</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#css4">CSS</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#js4">JAVASCRIPT</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-body tab-content">
+                                                <div id="html4" class="tab-pane active"><img src="images/lectTwo/htmlArray.png" class="img-fluid"></div>
+                                                <div id="css4" class="tab-pane">CSS</div>
+                                                <div id="js4" class="tab-pane"><img src="images/lectTwo/arrayJS.png" class="img-fluid"></div>
+                                            </div>
+                                        </div>
+                                        <!-- END WIDGET 2 -->
+                                        <a href="arraymethods.html" class="btn btn-danger btn-sm mt-1">Run</a>
+                                        <button onclick="document.getElementById('id06').style.display='block'" class="btn btn-danger btn-sm mt-1">Array Methods</button>
+                                        <button onclick="document.getElementById('id07').style.display='block'" class="btn btn-danger btn-sm mt-1">Concat</button>
+                                        <button onclick="document.getElementById('id08').style.display='block'" class="btn btn-danger btn-sm mt-1">Pop & Push</button>
+                                        <button onclick="document.getElementById('id09').style.display='block'" class="btn btn-danger btn-sm mt-1">Shift & Unshift</button>
+                                        <!-- <a href="lect2ArrayMethod.html" class="btn btn-danger btn-sm">Run</a>
+                                        <a href="lect2ArrayMethod.html" class="btn btn-danger btn-sm">Try Example</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div><!--End Lect Two-->
+            <!-- --------------------------------Model View Examples ------------------- -->
+                        <!-----------------------------String Length------------- -->
+            <div>
+              <!--Model Fro Example-->
+                <div id="id01" class="w3-modal">
+                  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                    <div class="w3-center"><br>
+                      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                      <!-- <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top"> -->
+                    </div>
+                      <div class="w3-section">
+                        <h4 class="text-center">String Length</h4>
+                        <input type="text" id="field1"  placeholder="Enter Any String"  class="w3-border w3-margin-bottom pr-5 p-2 ml-5">
+                        <button onclick="myFunctionCopy()" class="w3-button bg-danger text-white p-2 ">Get Length String</button><br>
+                        <input type="text" id="field2" class="text-center p-2 ml-5"><br><br>
+                      </div>
+                    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                      <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button bg-danger text-white">OK</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                          <!-----------------------------String Slice------------- -->
+            <div>
+                <!--Model Fro Example-->
+                  <div id="id02" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                      <div class="w3-center"><br>
+                        <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                        <!-- <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top"> -->
+                      </div>
+                        <div class="w3-section">
+                          <h4 class="text-center">String Slice</h4>
+                          <input type="text" id="yourString"  placeholder="Enter Any String"  class="w3-border w3-margin-bottom pr-5 p-2 ml-5">
+                          <input type="text" id="start"  placeholder="start" class="pt-2 pb-2 w3-border"  style ="width:50px">
+                          <input type="text" id="end"  placeholder="length"  class="w3-border w3-margin-bottom p-2" style ="width:50px"><br>
+                        <button onclick="scliceString(document.getElementById('yourString').value,document.getElementById('start').value,document.getElementById('end').value)" class="w3-button bg-danger text-white p-2 ml-5 ">Get Length String</button><br>
+                        <!-- <button onclick="scliceString()" class="w3-button bg-danger text-white p-2 ml-5 ">Get Length String</button><br> -->
+                          <input type="text" id="result" class="text-center p-2 ml-5"><br><br>
+                        </div>
+                      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                        <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button bg-danger text-white">OK</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-----------------------------String Concat------------- -->
+            <div>
+                <!--Model Fro Example-->
+                  <div id="id03" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                      <div class="w3-center"><br>
+                        <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                        <!-- <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top"> -->
+                      </div>
+                        <div class="w3-section">
+                          <h4 class="text-center">String Concat</h4>
+                          <input type="text" id="string1"  placeholder="First String"  class="w3-border w3-margin-bottom pr-5 p-2 ml-5">
+                          <input type="text" id="string2"  placeholder="Second String" class="pt-2 pb-2 w3-border"><br>
+                          <input type="text" id="resultConcat"  placeholder="result"  class="w3-border w3-margin-bottom pt-2 pb-2 ml-5 pr-4"><br>
+                        <button onclick="myConcatString(document.getElementById('string1').value,document.getElementById('string2').value)" class="w3-button bg-danger text-white p-2 ml-5 ">Concat String</button><br>
+                        <!-- <button onclick="scliceString()" class="w3-button bg-danger text-white p-2 ml-5 ">Get Length String</button><br> -->
+                          <!-- <input type="text" id="result" class="text-center p-2 ml-5"><br><br> -->
+                        </div>
+                      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                        <button onclick="document.getElementById('id03').style.display='none'" type="button" class="w3-button bg-danger text-white">OK</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                            <!-----------------------------String Replace------------- -->
+            <div>
+                <!--Model Fro Example-->
+                  <div id="id04" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                      <div class="w3-center"><br>
+                        <span onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                        <!-- <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top"> -->
+                      </div>
+                        <div class="w3-section">
+                                <h4 class="text-center">String Replace</h4>
+                                <input id="sentString" class="w3-border pt-2 pb-2 pr-5 ml-5 mb-2" type="text" placeholder="Enter Sentence" name="psw" required><br>
+                                <input type="text" id="orgString"  placeholder="Orginal String"  class="w3-border w3-margin-bottom pr-5 p-2 ml-5">
+                                <input type="text" id="replaceString"  placeholder="Replace String" class="pt-2 pb-2 w3-border"><br>
+                                <input type="text" id="resultReplace"  placeholder="Result Replace"  class="w3-border w3-margin-bottom pt-2 pb-2 ml-5 pr-4"><br>
+                                <button onclick="replaceString(document.getElementById('sentString').value,document.getElementById('orgString').value,document.getElementById('replaceString').value)" class="w3-button bg-danger text-white p-2 ml-5 ">Replace String</button><br>
+                        </div>
+                      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                        <button onclick="document.getElementById('id04').style.display='none'" type="button" class="w3-button bg-danger text-white">OK</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                               <!-----------------------------SubString------------- -->
+            <div>
+                <!--Model Fro Example-->
+                  <div id="id05" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                      <div class="w3-center"><br>
+                        <span onclick="document.getElementById('id05').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                        <!-- <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top"> -->
+                      </div>
+                        <div class="w3-section">
+                          <h4 class="text-center">String Substring</h4>
+                          <input type="text" id="StringComplete"  placeholder="Enter Any String"  class="w3-border w3-margin-bottom pr-5 p-2 ml-5">
+                          <input type="text" id="startPos"  placeholder="start" class="pt-2 pb-2 w3-border"  style ="width:50px">
+                          <input type="text" id="endPos"  placeholder="end"  class="w3-border w3-margin-bottom p-2" style ="width:50px"><br>
+                        <button onclick="subStringApply(document.getElementById('StringComplete').value,document.getElementById('startPos').value,document.getElementById('endPos').value)" class="w3-button bg-danger text-white p-2 ml-5 mb-2 ">Get Substring</button><br>
+                        <!-- <button onclick="scliceString()" class="w3-button bg-danger text-white p-2 ml-5 ">Get Length String</button><br> -->
+                          <input type="text" id="resultSubString" class="text-center p-2 ml-5 "><br><br>
+                        </div>
+                      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                        <button onclick="document.getElementById('id05').style.display='none'" type="button" class="w3-button bg-danger text-white">OK</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                                           <!-----------------------------All Methods Of Array------------- -->
+            <div>
+                <!--Model Fro Example-->
+                  <div id="id06" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                      <div class="w3-center"><br>
+                        <span onclick="document.getElementById('id06').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                        <!-- <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top"> -->
+                      </div>
+                        <div class="w3-section">
+                          <h4 class="text-center">Array Methods</h4>"
+                          <!--Tostring-->
+                          
+                            <button type="button" onclick="arrToStrApply()" class="btn btn-primary ml-5">To String <span class="badge">7</span></button>
+                            <button type="button" onclick="arrJoinApply()" class="btn btn-success">Join <span class="badge">3</span></button>    
+                            <button type="button" onclick="arrSortApply()"class="btn btn-danger">Sort <span class="badge">5</span></button> 
+                            <button type="button" onclick="arrReverseApply()"class="btn btn-warning">Sort <span class="badge">5</span></button> 
+                            <p id="strExample" class="m-5 text-dark">["Banana", "Orange", "Apple", "Mango"]</p>   
+                            <p id="outFun" class="m-5 text-center" ></p>
+                          <!-- <input type="text" id="outFun" class="text-center p-2 ml-5 "><br><br> -->
+                        </div>
+                      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                        <button onclick="document.getElementById('id06').style.display='none'" type="button" class="w3-button bg-danger text-white">OK</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                    <!-----------------------------Concat Array------------- -->
+                    <div>
+                        <!--Model Fro Example-->
+                        <div id="id07" class="w3-modal">
+                            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                            <div class="w3-center"><br>
+                                <span onclick="document.getElementById('id07').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                                <!-- <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top"> -->
+                            </div>
+                                <div class="w3-section">
+                                <h4 class="text-center">Array Methods</h4>"
+                                <!--Tostring-->
+                                
+                                    <button type="button" onclick="concatArray()" class="btn btn-primary ml-5">Concat Array <span class="badge"></span></button>
+                                    
+                                    <p id="strExample" class="m-5 text-dark">["Cecilie", "Lone"]</p>
+                                    <p id="strExample" class="m-5 text-dark">["Emil", "Tobias", "Linus"];</p>
+                                    <p id="strExample" class="m-5 text-dark">["Robin"]</p>
+                                    <p id="printConcatArr" class="m-5 text-center text-dark" ></p>
+                                    
+                                </div>
+                            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                                <button onclick="document.getElementById('id07').style.display='none'" type="button" class="w3-button bg-danger text-white">OK</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                
+                
+                                            <!-----------------------------Pop and Push------------- -->
+            <div>
+                <!--Model Fro Example-->
+                  <div id="id08" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                      <div class="w3-center"><br>
+                        <span onclick="document.getElementById('id08').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                        <!-- <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top"> -->
+                      </div>
+                        <div class="w3-section">
+                          <h4 class="text-center">Array Methods</h4>"
+                          <!--Tostring-->
+                          
+                            <button type="button" onclick="popElement()" class="btn btn-primary ml-5">pop <span class="badge"></span></button>
+                            <button type="button" onclick="pushElement()" class="btn btn-success">push <span class="badge"></span></button>    
+                            
+                            <p id="strExample" class="m-5 text-dark">["Banana", "Orange", "Apple", "Mango"]</p>
+                            <input type="text" id="pushWord"  placeholder="Enter word to Push"  class="w3-border w3-margin-bottom pr-5 p-2 ml-5"> 
+                            <p id="popPush" class="m-5 text-center" ></p>
+                          <!-- <input type="text" id="outFun" class="text-center p-2 ml-5 "><br><br> -->
+                        </div>
+                      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                        <button onclick="document.getElementById('id08').style.display='none'" type="button" class="w3-button bg-danger text-white">OK</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                                                <!-----------------------------Shift Unshift------------ -->
+            <div>
+                <!--Model Fro Example-->
+                  <div id="id09" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                      <div class="w3-center"><br>
+                        <span onclick="document.getElementById('id09').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                        <!-- <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top"> -->
+                      </div>
+                        <div class="w3-section">
+                          <h4 class="text-center">Array Methods</h4>"
+                          <!--Tostring-->
+                          
+                            
+                           
+                            
+                            <p id="strExample" class="m-5 text-dark">["Banana", "Orange", "Apple", "Mango"]</p>
+                            <input type="text" id="unshiftWord"  placeholder="Enter word to Push"  class="w3-border w3-margin-bottom pr-5 p-2 ml-5">   <button type="button" onclick="unshiftElement()" class="btn btn-success">unshift <span class="badge"></span></button>    <br>
+                            <span class="ml-5">shift word:  </span> <span id="eleShift" class="m-5 text-center" ></span> <button type="button" onclick="shiftElement()" class="btn btn-primary ml-5">Shift <span class="badge"></span></button>
+                            
+                            <p id="outArray" class="m-5 text-center" ></p>
+                            
+                          <!-- <input type="text" id="outFun" class="text-center p-2 ml-5 "><br><br> -->
+                        </div>
+                      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                        <button onclick="document.getElementById('id09').style.display='none'" type="button" class="w3-button bg-danger text-white">OK</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            <!--end Lect one-->
+            <!-- Display Video -->
+            <center>
+                <h1 style="color:green">  
+               Lecture Two 
+            </h1>
+        
+                <h3>  
+                view video to explane lesson
+            </h3>
+                <div class="bs-example">
+                    <a href="#Geeks2" 
+                    class="btn btn-lg btn-primary" 
+                    data-toggle="modal">Launch Lecture</a>
+        
+                    <div id="Geeks2" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button"
+                                            class="close"
+                                            data-dismiss="modal"
+                                            aria-hidden="true">×</button>
+                                    <h4 class="modal-title">Lectur One</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <iframe id="Geeks3" width="450" height="350"
+                                            src="videos/Part 1.mp4" 
+                                            frameborder="0" allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            
+        </center>
+
+            <script>
+            function scliceString(str,strat,length){
+                var strVar=str;
+                var startPos=parseInt(start);
+                var length=parseInt(length);
+                document.getElementById("result").value = strVar.slice(start,length); 
+            }
+            </script>
+            <script>
+            function myConcatString(str1,str2){
+                var varStr1=str1;
+                var varStr2=str2
+                
+                document.getElementById("resultConcat").value = varStr1.concat(varStr2);
+            }
+
+            </script>
+            <script>
+                function replaceString(str1,str2,str3){
+                    var strVar=str1;
+                    var varStr1=str2;
+                    var varStr2=str3;
+                    
+                    document.getElementById("resultReplace").value = strVar.replace(varStr1, varStr2);
+                }
+                
+            </script>
+            <script>
+                function subStringApply(str,strat,end){
+                    var strVar=str;
+                    var startPos=parseInt(start);
+                    var endPos=parseInt(end);
+                    document.getElementById("resultSubString").value = strVar.substring(startPos,endPos); 
+                }
+            </script>
+            <!-------------------------------------------Array Method Script---------------------->
+            <script>
+                 function arrToStrApply(){
+                    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                    // document.getElementById("strExample").innerHTML=fruits;
+                    document.getElementById("outFun").innerHTML = fruits.toString();
+                    document.getElementById("outFun").style.background ="#007bff";
+                    document.getElementById("outFun").style.color ="white";
+                
+                 }
+            </script>
+             <script>
+                function arrJoinApply(){
+                   const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                   // document.getElementById("strExample").innerHTML=fruits;
+                   document.getElementById("outFun").innerHTML = fruits.join(" * ");
+                   document.getElementById("outFun").style.background ="#28a745";
+                   document.getElementById("outFun").style.color ="white";
+               
+                }
+           </script>
+            <script>
+                function arrSortApply(){
+                   const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                   // document.getElementById("strExample").innerHTML=fruits;
+                   document.getElementById("outFun").innerHTML = fruits.sort();
+                   document.getElementById("outFun").style.background ="#dc3545";
+                   document.getElementById("outFun").style.color ="white";
+               
+                }
+           </script>
+          
+           <script>
+            function arrReverseApply(){
+               const fruits = ["Banana", "Orange", "Apple", "Mango"];
+               // document.getElementById("strExample").innerHTML=fruits;
+               document.getElementById("outFun").innerHTML = fruits.reverse();
+               document.getElementById("outFun").style.background ="#ffc107";
+               document.getElementById("outFun").style.color ="white";
+           
+            }
+       </script>
+       <script>
+        function pushElement(){
+           const fruits = ["Banana", "Orange", "Apple", "Mango"];
+           // document.getElementById("strExample").innerHTML=fruits;
+           let work=document.getElementById("pushWord").value;
+          fruits.push(work);
+          document.getElementById("popPush").innerHTML =fruits;
+       
+            }
+         </script>
+         <script>
+            function popElement(){
+               const fruits = ["Banana", "Orange", "Apple", "Mango"];
+               // document.getElementById("strExample").innerHTML=fruits;
+               fruits.pop();  // Removes "Mango" from fruits
+               document.getElementById("popPush").innerHTML = fruits;
+           
+                }
+             </script>
+             <script>
+                function unshiftElement(){
+                   const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                   const element=document.getElementById("unshiftWord").value;
+                   fruits.unshift(element);
+                   document.getElementById("outArray").innerHTML = fruits;
+                   document.getElementById("outArray").style.background ="#28a745";
+                   document.getElementById("outArray").style.color ="white";
+                }
+            </script>
+     
+             <script>
+                function shiftElement(){
+                   const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                   const xx=fruits.shift();//del first item
+                   document.getElementById("eleShift").innerHTML = xx;
+                   document.getElementById("outArray").innerHTML = fruits;
+                   document.getElementById("outArray").style.background ="#007bff";
+                   document.getElementById("outArray").style.color ="white";
+               
+                    }
+                 </script>
+                 <script>
+                  function concatArray(){
+                    const hege = ["Cecilie", "Lone"];
+                    const stale = ["Emil", "Tobias", "Linus"];
+                    const kai = ["Robin"];
+                    const children = hege.concat(stale, kai);
+                    document.getElementById("printConcatArr").innerHTML = children;
+                    
+                
+                     }
+                  </script>
+                 
+            
+            <script src="js/main.js"></script>
+            <!-- jQuery CDN - Slim version (=without AJAX) -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <!-- Popper.JS -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+                integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+                crossorigin="anonymous"></script>
+            <!-- Bootstrap JS -->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+                integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+                crossorigin="anonymous"></script>
+            <script>
+                // Collaps Sidebar
+            $(document).ready(function () {
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('.nav-item a').on('click', function (e) {
+                        var currentAttrValue = $(this).attr('href');
+                        // Show/Hide Tabs
+                        $('.tab-content ' + currentAttrValue).show().siblings().hide();
+                        // Change/remove current tab to active
+                        $(this).parent('li').addClass('active').siblings().removeClass('active');
+                        e.preventDefault();
+                    });
+                });
+            </script>
+            <script>
+                function myFunctionCopy() {
+                    var x=document.getElementById("field1").value;
+                  document.getElementById("field2").value =x.length ;
+                  document.getElementById("heading").style.background = color;
+                }
+        </script>
+</body>
+
+</html>

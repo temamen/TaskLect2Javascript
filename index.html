@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+   <!-- Bootstrap CSS CDN -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+   integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+    integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+    crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+    integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+    crossorigin="anonymous"></script>
+
+   <script>
+       $(document).ready(function(){
+           /* Get iframe src attribute value i.e. YouTube video url
+           and store it in a variable */
+           var url = $("#cartoonVideo").attr('src');
+           
+           /* Assign empty url value to the iframe src attribute when
+           modal hide, which stop the video playing */
+           $("#myModal").on('hide.bs.modal', function(){
+               $("#cartoonVideo").attr('src', '');
+           });
+           
+           /* Assign the initially stored url back to the iframe src
+           attribute when modal is displayed again */
+           $("#myModal").on('show.bs.modal', function(){
+               $("#cartoonVideo").attr('src', url);
+           });
+       });
+       </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h2>X TEAMS</h2>
+                <h3>Javascript</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Tasks</p>
+                <li>
+                    <a href="index.html">YouNeed</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Lecture
+                        One</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#lesson1" onclick='scroll("lesson1");'>Comment</a>
+                        </li>
+                        <li>
+                            <a href="#lesson2" onclick='scroll("lesson2");'>Variable</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Arathmetic Operats</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Assignment Operats</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Logical Operators</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Data type</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">String</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Number</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Array</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Boolean</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Object</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Undefined</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">Null</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">String Function</a>
+                        </li>
+                        <li>
+                            <a href="#lesson3">if else</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Lecture
+                        Two</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="LectureTwo.html">String Methods</a>
+                        </li>
+                        <li>
+                            <a href="LectureTwo.html">Function & Alert</a>
+                        </li>
+                        <li>
+                            <a href="LectureTwo.html">Array Methods</a>
+                        </li>
+                        <li>
+                            <a href="LectureTwo.html">Time</a>
+                            
+                        </li>
+                        <li>
+                            <a href="LectureTwo.html">Side Navbar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+
+        </nav>
+
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Company</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="youNeed">
+                <h2>Six Steps to Master Javascript</h2>
+
+                <div class="container">
+                
+                    <p>
+                        <strong>Note:</strong> We <strong>Need</strong> the following steps to access to Reactjs
+                    </p>
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                   Basci Javascript
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                              
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                   dom
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <h4>Object Model (DOM)</h4>
+                                    <p>The data representation of the objects that comprise the structure and content of a document on the web.</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                                    bom
+                                </a>
+                            </div>
+                            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                
+                                <div class="card-body">
+                                    <h4> Browser Object Model (BOM)</h4>
+                                    <p>The API of the browser that allows JavaScript to communicate with the browser.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+                                    OOP
+                                </a>
+                            </div>
+                            <div id="collapseFour" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseFive">
+                                    ajax http Request json
+                                </a>
+                            </div>
+                            <div id="collapseFive" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseSix">
+                                    ES6
+                                </a>
+                            </div>
+                            <div id="collapseSix" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="line"></div>
+        <!-- <div class="row">
+            <div class="col-4">
+                <a href="videos/partOne.mp4" download>download</a>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="videos/partOne.mp4?controls=0" allowfullscreen></iframe>
+                   
+                </div>
+            </div>
+           
+
+        </div> -->
+        
+            <center>
+                <h1 style="color:green">  
+               Lecture One 
+            </h1>
+        
+                <h3>  
+                view video to explane lesson
+            </h3>
+                <div class="bs-example">
+                    <a href="#Geeks2" 
+                    class="btn btn-lg btn-primary" 
+                    data-toggle="modal">Launch Lecture</a>
+        
+                    <div id="Geeks2" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button"
+                                            class="close"
+                                            data-dismiss="modal"
+                                            aria-hidden="true">×</button>
+                                    <h4 class="modal-title">Lectur One</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <iframe id="Geeks3" width="450" height="350"
+                                            src="videos/partOne.mp4" 
+                                            frameborder="0" allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            </center>
+                
+         </div>
+    </div>
+    // Collaps Sidebar
+    <!-- <script>
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+    </script> -->
+    <script>
+        $(document).ready(function() {
+            var url = $("#Geeks3").attr('src');
+            $("#Geeks2").on('hide.bs.modal', function() {
+                $("#Geeks3").attr('src', '');
+            });
+            $("#Geeks2").on('show.bs.modal', function() {
+                $("#Geeks3").attr('src', url);
+            });
+        });
+    </script>
+    <!--my javascript-->
+    <script src="js/main.js"></script>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+  
+</body>
+
+</html>

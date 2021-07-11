@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+   
+</head>
+<body>
+
+    <h2 class="text-center boarder bg-danger text-white p-3 m-5">String Methods</h2>
+    <div class="pl-3">
+            <!-- Litteral String---String datatype -->
+            <h1>Litteral String is: <small class="text-primary" id="strLit"></small> </h1>
+            <h1>Type String of Litteral String is : is<small  class="text-primary" id="strTypeLit"></small> </h1>
+
+            <!-- Constructor String ----Object datatype-->
+            <h1>Constructore String Is: <small  class="text-primary text-success" id="strConst"></small> </h1>
+            <h1>Type Stirng of Constructore String Is: <small  class="text-primary text-success" id="strTypeConst"></small> </h1>
+
+            <!-- Length Method of String -->
+            <h1>Length Of String(Litteral String) : <small  class="text-danger text-success" id="strLength"></small> </h1>
+
+
+    </div>
+    <script>
+        function scliceString(){
+    var strVar="bbbbbbbbbbbbbbbbbbb";
+    var startPos=parseInt(start);
+    var length=parseInt(length);
+    document.getElementById("result").value = strVar.slice(2,4); 
+}
+    </script>
+
+<!-- <script>
+    function scliceString(str,strat,length){
+    var strVar=str
+    var startPos=parseInt(start);
+    var length=parseInt(length);
+    document.getElementById("result").innerHTML = str.slice(start,length); 
+}
+
+</script> -->
+    <script src="js/mainForTask.js"></script>
+</body>
+</html>
